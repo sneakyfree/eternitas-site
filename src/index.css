@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-windy-darker text-gray-100;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-windy-silver via-windy-white to-windy-steel;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-windy-dark via-windy-darker to-black;
+  }
+}
+
+/* Gradient mesh background */
+.gradient-mesh {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(226, 232, 240, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(148, 163, 184, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(251, 191, 36, 0.02) 0%, transparent 50%);
+}
+
+/* CTA glow pulse */
+.cta-glow {
+  animation: glow-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(226, 232, 240, 0.2), 0 0 60px rgba(226, 232, 240, 0.05); }
+  50% { box-shadow: 0 0 30px rgba(226, 232, 240, 0.35), 0 0 80px rgba(226, 232, 240, 0.1); }
+}
+
+/* Subtle card shimmer on hover */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.card-shimmer:hover {
+  background-image: linear-gradient(
+    110deg,
+    transparent 25%,
+    rgba(226, 232, 240, 0.03) 37%,
+    transparent 63%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out;
+}
+
+/* Animated border gradient */
+@keyframes border-rotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Stats counter glow */
+.stat-glow {
+  text-shadow: 0 0 30px rgba(226, 232, 240, 0.3);
+}
+
+/* Gold accent glow */
+.gold-glow {
+  text-shadow: 0 0 30px rgba(251, 191, 36, 0.4);
+}
+
+/* Passport card styling */
+.passport-card {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 50%, rgba(15, 23, 42, 0.9) 100%);
+  border: 1px solid rgba(226, 232, 240, 0.2);
+}
+
+.passport-card:hover {
+  border-color: rgba(251, 191, 36, 0.4);
+}
+
+/* Popular pricing ring */
+.popular-ring {
+  position: relative;
+}
+.popular-ring::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #e2e8f0, #fbbf24, #94a3b8, #e2e8f0);
+  background-size: 300% 300%;
+  animation: border-rotate 4s linear infinite;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+/* Badge shimmer */
+@keyframes badge-shimmer {
+  0% { background-position: -100% center; }
+  100% { background-position: 200% center; }
+}
+
+.badge-shimmer {
+  background-image: linear-gradient(
+    110deg,
+    rgba(226, 232, 240, 0.8) 0%,
+    rgba(248, 250, 252, 1) 45%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(248, 250, 252, 1) 55%,
+    rgba(226, 232, 240, 0.8) 100%
+  );
+  background-size: 200% 100%;
+  animation: badge-shimmer 3s ease-in-out infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
